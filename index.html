@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Weather-Dashboard</title>
+        <link rel="stylesheet" href="https://unpkg.com/@blaze/css@x.x.x/dist/blaze/blaze.css">
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -17,21 +18,76 @@
             <div class="input">
                 <input type="text" class="inputValue" placeholder="Enter a city">
                 <input type="submit" value="Submit" class="button">
+                
             </div>
-            <div class="display">
+            <div class="currentDisplay" >
                 <h1 class="name"></h1>
+                <div class="date" id="date"></div>
                 <img class="icon" src="#" alt="image icon">
                 <p class="description"></p>
-                <p class="temperature">monkey</p>
+                <p class="temperature">Temp:</p>
+                <p class="wind">Wind:</p>
+                <p class="humidity">Humidity:</p>
             </div>      
         </aside>
-        <section></section>
+
+        <section class="futureWeather">
+           
+            <div class="weatherForecast" id="weatherForecast">
+                <div class="weatherForecastItem">
+                    <div class="date" id="date"></div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temperature">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity:</div>
+                </div>
+
+                <div class="weatherForecastItem">
+                    <div class="date" id="date"></div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temperature">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity:</div>
+                </div>
+
+                <div class="weatherForecastItem">
+                    <div class="date" id="date"></div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temperature">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity:</div>
+                
+                </div>
+                <div class="weatherForecastItem">
+                    <div class="date" id="date"></div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temperature">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity:</div>
+                </div>
+
+                <div class="weatherForecastItem">
+                    <div class="date" id="date">Friday</div>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temperature">Temp:</div>
+                    <div class="wind">Wind:</div>
+                    <div class="humidity">Humidity:</div>
+                </div>
+            </div>
+        </section>
 
         
-      
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script src="script.js"></script>
     </body>
 
 
-    <script src="script.js"></script>
+    
 
 </html>
