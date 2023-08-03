@@ -26,41 +26,38 @@ button.addEventListener('click',function(){
     })
     .then(data => {
         console.log(data)
-        temperature.innerHTML = data.main.temp
-        cityName.innerHTML = data.name
-        icon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-        wind.innerHTML = data.wind.speed
-        humidity.innerHTML = data.main.humidity
+        temperature.innerHTML = data.main.temp;
+        cityName.innerHTML = data.name;
+        icon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+        wind.innerHTML = data.wind.speed;
+        humidity.innerHTML = data.main.humidity;
+        weatherForecast(data.coord);
 
-    })
+    });
    
     var reformatDate = dayjs().format('dddd, MMMM D, YYYY h:mm A');
     $('#date').text(reformatDate); 
 
 
-    weatherForecast()
-function weatherForecast() {
-    navigator.geolocation.getCurrentPosition((success) => {
-        console.log(success);
-
-        let {latitude, longitude } = success.coords;
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${APIKey}`)
-        .then(response => {
-            console.log(response)
+    
+function weatherForecast(coord) {
+    let {lat, lon } = coord;
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`)
+        .then((response) => {
+            console.log(response);
             return response.json();
         })
-        .then(data => {
-            console.log(data)
+        .then((data) => {
+            console.log(data);
             showWeatherForecastData(data);
-        })
-    })
+        });
 }
 
 function showWeatherForecastData(data){
-    let {temperature, humidity, wind} = data. ;
+    // let {temperature, humidity, wind} = data. ;
 }
         
-})
+});
 
 
 
