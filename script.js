@@ -17,7 +17,7 @@ var APIKey = "623456b3015ec95a9cdbd52123d09d95";
 var city;
 
 
-
+//Current Weather Forecast
 button.addEventListener('click',function(){
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid="+APIKey+"&units=imperial"+"&wind=imperial";
     fetch(queryURL)
@@ -37,15 +37,12 @@ button.addEventListener('click',function(){
 
     });
    
+//Current Date
     var reformatDate = dayjs().format('dddd, MMMM D, YYYY h:mm A');
     $('#date').text(reformatDate); 
 
-    
 
-    
-
-
-    
+//5 Day Forecast  
 function weatherForecast(coord) {
     let {lat, lon } = coord;
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`)
@@ -60,12 +57,10 @@ function weatherForecast(coord) {
             const day3 = data.list[23];
             const day4 = data.list[31];
             const day5 = data.list[39];
-            
-            console.log(day1);
 
+        //Array    
            const dayArray= [day1, day2, day3, day4, day5]; 
             showWeatherForecastData(dayArray);
-
         });
 }
 
@@ -74,7 +69,6 @@ function showWeatherForecastData(data){
     data.forEach(day => {
         console.log(day);
 
-
         //create the element
         const divContainer = document.createElement("div");
         const icons = document.createElement('img');
@@ -82,7 +76,6 @@ function showWeatherForecastData(data){
         const wind = document.createElement("p");
         const humidity = document.createElement("p");
 
-        
         //append to the page
         fiveday.append(divContainer);
         divContainer.append(icons);
@@ -97,18 +90,12 @@ function showWeatherForecastData(data){
 
         icons.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`);
 
-
         //add styling
         temp.classList.add("temp");
         wind.classList.add("wind");
         humidity.classList.add("humidity");
-        divContainer.classList.add("weatherForecast");
-
-         
+        divContainer.classList.add("weatherForecast");     
     });
 }
-
-
-
 
 });
