@@ -9,6 +9,8 @@ var humidity = document.querySelector('.humidity');
 var fiveday = document.querySelector('.fiveday');
 
 
+
+
 var date = document.getElementById('date');
 var time = document.getElementById('time');
 var weatherForecast = document.getElementById('weatherForecast');
@@ -18,13 +20,77 @@ var APIKey = "623456b3015ec95a9cdbd52123d09d95";
 
 //localStorage
 var city= '';
-var cities = [];
-// var pastCities = h2.innerHTML = localStorage.getItem("citySearch");
+var citySearch = [];
+var previousSearch = document.querySelector("#previousSearch")
+
+
+function prevCities(){
+    var savedCities = JSON.parse(localStorage.getItem('citySearch'));
+
+    if(savedCities !== null) {
+        citySearch = savedCities;
+    }
+    prevCityBtns();
+}
+
+function saveCity(){
+    localStorage.setItem('citySearch', JSON.stringify(citySearch));
+}
+
+function prevCityBtns(){
+    previousSearch.innerHTML = '';
+    if(citySearch == null) {
+        return;
+    }
+    var diffCity = [...new Set(citySearch)];
+        for(var i=0; i< diffCity.length; i++){
+            var cityName = diffCity[i];
+    
+            var btnEl = document.createElement('button');
+            btnEl.textContent = cityName;
+            btnEl.setAttribute('class', 'listBtn');
+    
+            previousSearch.appendChild(btnEl);
+            prevCityClick();
+        }
+    }
+    
+function prevCityClick(){
+    $('.listBtn').on('click', function(event) {
+                event.preventDefault();
+                console.log("hello");
+                city = $(this).text().trim();
+                APIcall();
+            })
+        }
+
+function userCity(){
+    $("#input").on('click', function(event){
+        event.preventDefault();
+        city = $(this).prev().val().trim();
+
+        citySearch.push(city);
+
+        if(citySearch.length > 5) {
+            citySearch.shift()
+        }
+
+        if(city == ''){
+            return;
+        }
+
+        APIcall();
+        saveCity();
+        prevCityBtns();
+    })
+}
+
 
 const localStorageContent = localStorage.getItem('citySearch')
 const input = document.querySelector("input"),
         btn = document.querySelector(".listbtn");
 
+    
 
 //Current Weather Forecast
 button.addEventListener('click',function(){
@@ -89,20 +155,28 @@ function showWeatherForecastData(data){
         const temp = document.createElement("p");
         const wind = document.createElement("p");
         const humidity = document.createElement("p");
+        const date = document.createElement("div");
 
         //append to the page
         fiveday.append(divContainer);
+        divContainer.append(date);
         divContainer.append(icons);
         divContainer.append(temp);
         divContainer.append(wind);
         divContainer.append(humidity);
         
+        
         //give it some content
+        date.textContent = day.dt_txt;
         temp.textContent = "Temp: " + day.main.temp + " F";
         wind.textContent = "Wind: " + day.wind.speed + " MPH";
         humidity.textContent = "Humidity: " + day.main.humidity + " %";
 
         icons.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`);
+
+        
+
+        
 
         //add styling
         temp.classList.add("temp");
