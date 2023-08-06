@@ -65,7 +65,7 @@ function prevCityClick(){
         }
 
 function userCity(){
-    $("#input").on('click', function(event){
+    $('#input').on('click', function(event){
         event.preventDefault();
         city = $(this).prev().val().trim();
 
@@ -94,27 +94,32 @@ const input = document.querySelector("input"),
 
 //Current Weather Forecast
 button.addEventListener('click',function(){
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+inputValue.value+"&appid="+APIKey+"&units=imperial"+"&wind=imperial";
+    var queryURL = 
+        "http://api.openweathermap.org/data/2.5/weather?q=" +
+         inputValue.value + 
+        '&appid=' +
+        APIKey + 
+        '&units=imperial' + 
+        '&wind=imperial';
     fetch(queryURL)
-    .then(response => {
-        console.log(response)
+    .then((response) => {
+        console.log(response);
         return response.json();
     })
-    .then(data => {
+    .then((data) => {
         console.log(data);
-        temperature.innerHTML = "Temperature: " + data.main.temp + " F";
+        temperature.innerHTML = "Temperature: " + data.main.temp + ' F';
         cityName.innerHTML = data.name;
         icon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-        wind.innerHTML = "Wind: " + data.wind.speed + " MPH";
-        humidity.innerHTML = "Humidity: " + data.main.humidity + " %";
+        wind.innerHTML = "Wind: " + data.wind.speed + ' MPH';
+        humidity.innerHTML = "Humidity: " + data.main.humidity + ' %';
         weatherForecast(data.coord);
 
 
-
-        localStorage.setItem('citySearch', input.value);
+        citySearch.push(input.value);
+        localStorage.setItem('citySearch', citySearch);
         btn.innerHTML = localStorage.getItem("citySearch");
-        
-        
+         
     });
    
 //Current Date
@@ -174,9 +179,6 @@ function showWeatherForecastData(data){
 
         icons.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`);
 
-        
-
-        
 
         //add styling
         temp.classList.add("temp");
