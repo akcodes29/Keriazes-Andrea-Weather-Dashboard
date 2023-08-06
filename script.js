@@ -8,13 +8,22 @@ var wind = document.querySelector('.wind');
 var humidity = document.querySelector('.humidity');
 var fiveday = document.querySelector('.fiveday');
 
+
 var date = document.getElementById('date');
 var time = document.getElementById('time');
 var weatherForecast = document.getElementById('weatherForecast');
 
-
+//API Key
 var APIKey = "623456b3015ec95a9cdbd52123d09d95";
-var city;
+
+//localStorage
+var city= '';
+var cities = [];
+// var pastCities = h2.innerHTML = localStorage.getItem("citySearch");
+
+const localStorageContent = localStorage.getItem('citySearch')
+const input = document.querySelector("input"),
+        btn = document.querySelector(".listbtn");
 
 
 //Current Weather Forecast
@@ -33,8 +42,13 @@ button.addEventListener('click',function(){
         wind.innerHTML = "Wind: " + data.wind.speed + " MPH";
         humidity.innerHTML = "Humidity: " + data.main.humidity + " %";
         weatherForecast(data.coord);
-        
 
+
+
+        localStorage.setItem('citySearch', input.value);
+        btn.innerHTML = localStorage.getItem("citySearch");
+        
+        
     });
    
 //Current Date

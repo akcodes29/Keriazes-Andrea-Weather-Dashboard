@@ -13,14 +13,24 @@
         <header id="page_header" class="container-fluid  pt-3 pb-3 text-center">
             <h1 class="text-white">Weather Dashboard</h1>
         </header>
+        
         <div class="row">
             <aside class="aside col-lg-3">
                 <h1>Search for a City: </h1>
                 <div class="input">
-                    <input type="text" class="inputValue" placeholder="Enter a city">
+                    <input id="input" type="text" class="inputValue" placeholder="Enter a city">
                     <input type="submit" value="Submit" class="button">    
                 </div>
+                <div class="container my-3 col 12" id="previousSearch">
+                    <div id="language-buttons" class="card-body">
+                        <button class="listbtn"></button>
+                        
+                       
+
+                    </div>
+                </div>
             </aside>
+            
             <div class="container-fluid col-lg-8">
                 <div class="currentDisplay">
                     <h1 class="name"></h1>

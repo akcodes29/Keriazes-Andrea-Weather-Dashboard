@@ -48,3 +48,11 @@
 .fiveday {
     display: inline-flex;
 }
+
+/* .card {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    padding: 2.5%;
+    background-color: #011954;
+  } */
