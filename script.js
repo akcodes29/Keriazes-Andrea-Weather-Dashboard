@@ -68,8 +68,7 @@ function APIcall(city) {
          city + 
         '&appid=' +
         APIKey + 
-        '&units=imperial' + 
-        '&wind=imperial';
+        '&units=imperial';
     fetch(queryURL)
     .then((response) => {
         return response.json();
