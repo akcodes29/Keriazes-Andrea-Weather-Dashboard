@@ -20,6 +20,7 @@
     margin: 10px 0;
     padding-left: 15px;
     padding-top: 10px;
+    display: none;
 }
 
 .wind {
@@ -32,7 +33,9 @@
 
 #fiveFore {
     font-size: 25px;
+    display: none;
 }
+
 
 .futureWeather {
     display: flex;
@@ -47,6 +50,31 @@
 
 .fiveday {
     display: inline-flex;
+}
+
+#previousSearch {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#previousSearch button {
+    margin-bottom: 10px;
+    background-color: #011954;
+    color: white;
+    padding: 5px;
+}
+
+.input input {
+    margin: 5px;
+}
+
+.button {
+    background-color: aqua;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 200px;
 }
 
 /* .card {
