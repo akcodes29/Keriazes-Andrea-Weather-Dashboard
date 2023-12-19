@@ -1,7 +1,11 @@
+html body {
+    
+    background: linear-gradient(0.25turn, #B4C5F7, 60%, #3c5492);
+}
 
 #page_header{
     text-align: center;
-    background: linear-gradient(0.25turn, #053DC5, 40%, #011954);
+    background: linear-gradient(0.50turn, #B4C5F7, 30%, #011954);
     font-family: Arial, Helvetica, sans-serif;
     color: white
 }
@@ -16,15 +20,35 @@
 }
 
 .currentDisplay {
-    border: 2px solid blue;
+    border: 4px ridge #416CEB;
+    border-radius: 30px;
     margin: 10px 0;
     padding-left: 15px;
     padding-top: 10px;
     display: none;
+    width: 40%;
+}
+
+p.temperature {
+    font-size: 25px;
+    font-weight: bold;
+    color: #196F3D;
+}
+
+p.wind{
+    font-size: 20px;
+    font-weight: bold;
+    color: #EB984E;
+}
+
+p.humidity {
+    font-size: 20px;
+    font-weight: bold;
+    color: #F4D03F 
 }
 
 .wind {
-    color: rgb(36, 154, 193);
+    color: #EB984E;
 }
 
 .humidity {
@@ -44,7 +68,7 @@
 .weatherForecast{
     margin: 5px;
     padding: 10px;
-    background-color: #00002E;
+    background-color: #011954;
     color: white;
 }
 
@@ -63,6 +87,7 @@
     background-color: #011954;
     color: white;
     padding: 5px;
+    width: 200px;
 }
 
 .input input {
@@ -84,3 +109,47 @@
     padding: 2.5%;
     background-color: #011954;
   } */
+
+
+  /* media queries  */
+
+    @media (max-width: 400px) {
+        
+
+        .currentDisplay {
+            border: 4px ridge #416CEB;
+            border-radius: 30px;
+            margin: 10px 0;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            display: none;
+            justify-content: center;
+            width: 80%;
+        }
+
+        .fiveday{
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        #previousSearch button {
+            margin-bottom: 5px;
+            background-color: #011954;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            margin: 2px;
+            width: 60%;
+        }
+
+        .button {
+            background-color: #ABB2B9 ;
+            padding: 5px;
+            font-weight: bold;
+            border-radius: 10px;
+            width: 100px;
+        }
+    }
