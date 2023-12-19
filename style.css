@@ -7,8 +7,11 @@ html body {
     text-align: center;
     background: linear-gradient(0.50turn, #B4C5F7, 30%, #011954);
     font-family: Arial, Helvetica, sans-serif;
-    color: white
+    color: white;
+    
 }
+
+
 
 .aside h1 {
     font-size: 25px;
@@ -16,23 +19,29 @@ html body {
 }
 
 .aside {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .currentDisplay {
-    border: 4px ridge #416CEB;
+    border: 4px ridge #031e6e;
     border-radius: 30px;
     margin: 10px 0;
-    padding-left: 15px;
+    padding-left: 25px;
     padding-top: 10px;
     display: none;
     width: 40%;
+    background: linear-gradient(0.25turn, #9ca2c5, 60%, #6c7ca5);
+    
+}
+
+#date {
+    font-weight: bold;
 }
 
 p.temperature {
     font-size: 25px;
     font-weight: bold;
-    color: #196F3D;
+    color: white;
 }
 
 p.wind{
@@ -70,6 +79,9 @@ p.humidity {
     padding: 10px;
     background-color: #011954;
     color: white;
+    border: #e3e4ec 2px groove;
+    border-radius: 10px;
+    border-width: 5px;
 }
 
 .fiveday {
@@ -95,11 +107,15 @@ p.humidity {
 }
 
 .button {
-    background-color: aqua;
+    background-color: rgb(138, 144, 168);
     padding: 5px;
     font-weight: bold;
     border-radius: 10px;
-    width: 200px;
+    width: 150px;
+}
+
+#fiveFore {
+    font-weight: bold;
 }
 
 /* .card {
@@ -119,12 +135,12 @@ p.humidity {
         .currentDisplay {
             border: 4px ridge #416CEB;
             border-radius: 30px;
-            margin: 10px 0;
-            padding-left: 15px;
+            margin: 10px 0 10px 15px;
+            padding-left: 10px;
             padding-right: 15px;
             padding-top: 10px;
             display: none;
-            justify-content: center;
+            
             width: 80%;
         }
 
