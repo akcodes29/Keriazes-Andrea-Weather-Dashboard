@@ -43,7 +43,12 @@ function prevCityBtns(){
             var btnEl = document.createElement('button');
             btnEl.textContent = cityName;
             btnEl.setAttribute('class', 'listbtn');
-    
+            
+           //Add an event listener to the button
+           btnEl.addEventListener('click', function(){
+                displayWeather(cityName);
+            });
+             
             previousSearch.appendChild(btnEl);
             prevCityClick();
         }
