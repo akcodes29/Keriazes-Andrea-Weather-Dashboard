@@ -48,7 +48,7 @@ function prevCityBtns(){
            btnEl.addEventListener('click', function(){
                 displayWeather(cityName);
             });
-             
+
             previousSearch.appendChild(btnEl);
             prevCityClick();
         }
@@ -80,11 +80,11 @@ function APIcall(city) {
     })
     .then((data) => {
         var reformatDate = dayjs.unix(data.dt).format('dddd, MMMM D, YYYY h:mm A');
-        temperature.innerHTML = "Temperature: " + data.main.temp + ' F';
+        temperature.innerHTML = " " + Math.round(data.main.temp) + '°F';
         cityName.innerHTML = data.name;
         icon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         wind.innerHTML = "Wind: " + data.wind.speed + ' MPH';
-        humidity.innerHTML = "Humidity: " + data.main.humidity + ' %';
+        humidity.innerHTML = "Humidity: " + data.main.humidity + '%';
         weatherForecast(data.coord);
 
         if(!citySearch.includes(input.value)){
@@ -93,7 +93,6 @@ function APIcall(city) {
         if(citySearch.length > 5) {
              citySearch.shift()     
         }
-
         localStorage.setItem('citySearch', JSON.stringify(citySearch));
         prevCityBtns();
 
@@ -142,7 +141,7 @@ function showWeatherForecastData(data){
         const temp = document.createElement("p");
         const wind = document.createElement("p");
         const humidity = document.createElement("p");
-        const date = document.createElement("div");
+       const date = document.createElement("p");
 
         //append to the page
         fiveday.append(divContainer);
@@ -158,9 +157,10 @@ function showWeatherForecastData(data){
         var year = day.dt_txt.substring(0, 4);
         var d = month + "/" + dt + "/" + year 
         date.textContent = d;
-        temp.textContent = "Temp: " + day.main.temp + " F";
+        temp.textContent = " " + Math.round(day.main.temp) + "°F";
+    
         wind.textContent = "Wind: " + day.wind.speed + " MPH";
-        humidity.textContent = "Humidity: " + day.main.humidity + " %";
+        humidity.textContent = "Humidity: " + day.main.humidity + "%";
 
         icons.setAttribute('src', `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`);
 
