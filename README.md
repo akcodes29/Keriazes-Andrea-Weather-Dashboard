@@ -21,7 +21,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployed Link
 
-https://akcodes29.github.io/Weather-Dashboard/
+https://github.com/akcodes29/Keriazes-Andrea-Weather-Dashboard
 
 ## Screenshot 
 ![screenshot of page](image.png)
