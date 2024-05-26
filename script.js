@@ -130,7 +130,7 @@ function weatherForecast(coord) {
             showWeatherForecastData(dayArray);
         });
 }
-
+//5 Day Forecast Display
 function showWeatherForecastData(data){
     document.querySelector(".fiveday").innerHTML = ""
     data.forEach(day => {
